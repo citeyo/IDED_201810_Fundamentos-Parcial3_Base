@@ -4,11 +4,6 @@ namespace Parcial3_Base
 {
     internal static class Utils
     {
-        public static int GetTotalSecs(int hrs, int mins, int secs)
-        {
-            return (hrs * 3600) + (mins * 60) + secs;
-        }
-
         public static string GetString(this int[,] A)
         {
             string result = string.Empty;
