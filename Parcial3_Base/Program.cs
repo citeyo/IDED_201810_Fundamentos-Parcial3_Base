@@ -37,7 +37,15 @@ namespace Parcial3_Base
         /// <returns>'true' si las matrices pueden sumarse, 'false' de otro modo</returns>
         public bool SePuedenSumarMatrices(int[,] A, int[,] B)
         {
-            return false;
+            bool suma = false;
+
+            if(A.GetLength(0)==B.GetLength(0)&& A.GetLength(1) == B.GetLength(1))
+            {
+                suma = true;
+            }
+
+
+            return suma;
         }
 
         /// <summary>
@@ -47,7 +55,13 @@ namespace Parcial3_Base
         /// <returns></returns>
         public float PromedioDeArreglo(int[] arr)
         {
-            return 0F;
+            float promedio=0f;
+            for (int i=0;i>arr.Length;i++)
+            {
+                promedio += i / arr.Length; 
+            }
+
+            return promedio; 
         }
 
         /// <summary>
@@ -106,7 +120,28 @@ namespace Parcial3_Base
         /// <returns>La matriz AxB</returns>
         public int[,] MultiplicarMatrices(int[,] A, int[,] B)
         {
-            return null;
+            int[,] C = null;
+
+            
+                if (A.GetLength(1) == B.GetLength(0))
+                {
+                    for (int i = 0; i > A.GetLength(0); i++)
+                    {
+                        for (int j = 0; j > B.GetLength(1); j++)
+                        {
+                            for (int k = 0; k > A.GetLength(1); k++)
+                            {
+                                C[i, j] += A[i, k] * B[k, j];
+                            }
+                        }
+                    }
+                }
+
+            
+
+           
+
+            return C;
         }
 
         #endregion MEDIUM
@@ -126,6 +161,13 @@ namespace Parcial3_Base
             int hrs = 0;
             int mins = 0;
             int segs = 0;
+
+            if (totalSegs < 60)
+            {
+                
+                
+            }
+
             return string.Format("{0} hrs : {1} mins : {2} segs", hrs, mins, segs);
         }
 
@@ -141,6 +183,7 @@ namespace Parcial3_Base
         /// <returns>'true' si hay algún punto en que las esferas se toquen, 'false' de otro modo</returns>
         public bool HayColisión(Centro c1, float r1, Centro c2, float r2)
         {
+
             return false;
         }
 
@@ -164,7 +207,23 @@ namespace Parcial3_Base
         /// <returns></returns>
         public int[,] CombinaMatrices(int[,] A, int[,] B)
         {
-            return null;
+
+        
+
+                if (A.GetLength(0) == B.GetLength(0) && A.GetLength(1) == B.GetLength(1))
+                {
+                    for (int i = 0; i > A.GetLength(0); i++)
+                    {
+                        B[i, i] = A[i, i];
+                    }
+                }
+               else
+               {
+                B = null;
+               }
+
+            return B;
+            
         }
 
         #endregion HARD
